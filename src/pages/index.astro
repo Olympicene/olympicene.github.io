@@ -4,6 +4,7 @@ import Card from '../components/Card.astro';
 import NavBar from '../components/NavBar.astro';
 import HeaderTile from '../components/HeaderTile.astro';
 import QuickLink from '../components/QuickLink.astro';
+import Updates from '../components/Updates.astro';
 ---
 
 <Layout title="Welcome | Kevin Cordero">
@@ -32,7 +33,11 @@ import QuickLink from '../components/QuickLink.astro';
 
 		<div class="right">
 			<HeaderTile title="Recent">
-				
+				<Updates date="2024-06-05" type="Blog Post" title="I made a website!" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
+				<Updates date="2024-06-05" type="Bug Fix" title="Fixed NGINX routing issue" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
+				<Updates date="2024-06-05" type="Bug Fix" title="Jellyfin link should work now" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
+				<Updates date="2024-06-05" type="Project" title="silentspaces.info" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
+			
 			</HeaderTile>
 		</div>
 	</main>
@@ -54,7 +59,7 @@ import QuickLink from '../components/QuickLink.astro';
 		flex-direction: column;
 
 		flex: 1 1 auto;
-		max-width: calc((65% - 6 * 20px) + 4 * 20px);
+		max-width: calc((70% - 6 * 20px) + 4 * 20px);
 	}
 
 	.right {
@@ -63,6 +68,7 @@ import QuickLink from '../components/QuickLink.astro';
 
 	p {
 		font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		line-height: 1.6;
 		font-size: 16px;
 		margin: 0;
 	}

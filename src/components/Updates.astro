@@ -1,0 +1,40 @@
+---
+interface Props {
+    date: string;
+    type: string;
+    title: string;
+    summary?: string;
+}
+
+const { date, type, title, summary=""} = Astro.props;
+---
+
+<li class="update">
+    <p class="metadata">{date} - {type}</p>
+    <a href="https://google.com" class="title">{title}</a>
+    <!-- <p class="summary">{summary}</p> -->
+</li>
+<style>
+    .update {
+        list-style: none;
+        width: 100%;
+    }
+
+    .update p {
+        margin: 0;
+    }
+
+    .update a {
+        font-size: 18px;;
+    }
+
+    .metadata {
+        font-size: 14px;
+    }
+
+    .title {
+        text-decoration: underline;
+        font-weight: bold;
+        color: black;
+    }
+</style>
