@@ -13,7 +13,7 @@ import Updates from '../components/Updates.astro';
 		<div class="left">
 			<HeaderTile title="Welcome!">
 				<p>
-					Hi, I’m Kevin, a rising senior enrolled at The University of 
+					Hi, I’m Kevin, a rising senior enrolled at the University of 
 					Illinois at Chicago. 
 					I’m looking for internships and full time offers this upcoming fall cycle. 
 					I’m interested in DevOps and have a lot of experience in Webdev. 
@@ -32,7 +32,7 @@ import Updates from '../components/Updates.astro';
 		</div>
 
 		<div class="right">
-			<HeaderTile title="Recent">
+			<HeaderTile tall={true} title="Recent">
 				<Updates date="2024-06-05" type="Blog Post" title="I made a website!" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
 				<Updates date="2024-06-05" type="Bug Fix" title="Fixed NGINX routing issue" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
 				<Updates date="2024-06-05" type="Bug Fix" title="Jellyfin link should work now" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
@@ -59,7 +59,7 @@ import Updates from '../components/Updates.astro';
 		flex-direction: column;
 
 		flex: 1 1 auto;
-		max-width: calc((70% - 6 * 20px) + 4 * 20px);
+		max-width: calc((65% - 6 * 20px) + 4 * 20px);
 	}
 
 	.right {

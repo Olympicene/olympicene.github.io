@@ -1,11 +1,13 @@
 ---
 interface Props {
 	title: string;
+    class?: string;
+    tall?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, tall=false} = Astro.props;
 ---
-<div class="tile">
+<div class='tile' style={tall ? "height:100%" : "position: sticky; top: 20px;"}>
     <p class="title">{title}</p>
     <hr>
     <div class="content">
@@ -18,8 +20,6 @@ const { title } = Astro.props;
         background-color: #DEE2E6;
         border-radius: 10px;
         padding: 10px 20px 20px 20px;
-        
-        height: 100%;
         box-sizing: border-box;
     }
 

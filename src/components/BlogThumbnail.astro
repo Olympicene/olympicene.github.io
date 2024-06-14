@@ -1,0 +1,44 @@
+---
+interface Props {
+    date: string;
+    title: string;
+    summary?: string;
+    src: string;
+}
+
+const { date, title, summary="", src} = Astro.props;
+---
+
+<div class='tile'>
+    <img class="picture" src={src}>
+    <div class="text">
+        <p class="metadata">{date} - {title}</p>
+        <slot/>
+    </div>
+</div>
+
+<style>
+    .tile {
+        display: flex;
+        gap: 12px;
+
+        background-color: #DEE2E6;
+        border-radius: 10px;
+        padding: 12px 12px 12px 12px;
+        box-sizing: border-box;
+    }
+
+    .picture {
+        height: 150px;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .metadata {
+        font-size: 20px;
+    }
+</style>
