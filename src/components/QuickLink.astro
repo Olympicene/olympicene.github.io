@@ -1,0 +1,51 @@
+---
+interface Props {
+    src: string;
+    name: string;
+    href: string;
+}
+
+const { name, src, href} = Astro.props;
+---
+
+<li>
+    <a href={href} class="quickLink" href="https://google.com">
+        <img src={src} />
+        <p>{name}</p>
+    </a>
+</li>
+<style>
+    li {
+        list-style: none;
+        min-width: calc(50% - 10px);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+
+    .quickLink {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #e9ecef;
+        transition: 0.5s;
+    }
+
+    .quickLink:hover {
+        scale: 1.03;
+        box-shadow: 5px 5px rgb(54, 60, 66);
+        transition: 0.5s;
+    }
+
+    .quickLink img {
+        margin: 20px 0 10px 0;
+        height: 50px;
+        width: 50px;
+    }
+
+    .quickLink p {
+        margin: 0;
+        margin-bottom: 10px;
+        color: black;
+    }
+</style>

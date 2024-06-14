@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import NavBar from '../components/NavBar.astro';
 import HeaderTile from '../components/HeaderTile.astro';
+import QuickLink from '../components/QuickLink.astro';
 ---
 
 <Layout title="Welcome | Kevin Cordero">
@@ -12,16 +13,20 @@ import HeaderTile from '../components/HeaderTile.astro';
 			<HeaderTile title="Welcome!">
 				<p>
 					Hi, I’m Kevin, a rising senior enrolled at The University of 
-					Illinois at Chicago. I’m looking for internships and full time offers this 
-					upcoming fall cycle. I’m interested in DevOps and have 
-					a lot of experience in Webdev.<br><br>
-	
-					I’m not a systems guy but I like tinkering with my Homelab
-					and am President of LUG (Linux Users Group)
+					Illinois at Chicago. 
+					I’m looking for internships and full time offers this upcoming fall cycle. 
+					I’m interested in DevOps and have a lot of experience in Webdev. 
+					<br><br> I’m not a systems guy but I like tinkering with my Homelab
+					and am Treasurer of UIC's LUG (Linux Users Group)
 				</p>
 			</HeaderTile>
 			<HeaderTile title="Quick Links">
-				
+				<QuickLink href="https://linkding.olympicene.dev" src="/linkding.png" name="Linkding"></QuickLink>
+				<QuickLink href="https://jellyfin.olympicene.dev" src="/jellyfin.png" name="Jellyfin"></QuickLink>
+				<QuickLink href="https://letterboxd.com/Olympicene/" src="/letterboxd.png" name="Letterboxd"></QuickLink>
+				<QuickLink href="https://example.com" src="/homer.png" name="Homer"></QuickLink>	
+				<QuickLink href="/resume" src="/resume.png" name="Resume"></QuickLink>
+				<QuickLink href="/sitemap" src="/sitemap.png" name="Sitemap"></QuickLink>	
 			</HeaderTile>
 		</div>
 
@@ -61,5 +66,4 @@ import HeaderTile from '../components/HeaderTile.astro';
 		font-size: 16px;
 		margin: 0;
 	}
-
 </style>
