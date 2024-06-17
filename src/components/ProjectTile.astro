@@ -1,6 +1,6 @@
 ---
 interface Props {
-	src: [string];
+	src: Array<string>;
     title: string;
     link?: string;
     github?: string;
@@ -10,7 +10,7 @@ const { src, title, link, github} = Astro.props;
 ---
 <div class='tile'>
     <a href={github} target={github ? "_blank" : ""}><img class="github" src="/projects/github.png" /></a>
-    <div>
+    <div class='images'>
         {src.map((data) => <img src={data}/>)}
     </div>
 
@@ -32,10 +32,15 @@ const { src, title, link, github} = Astro.props;
 
         background-color: #DEE2E6;
         border-radius: 10px;
-        padding: 30px 60px 30px 60px;
+        padding: 30px 60px 25px 60px;
 
         box-sizing: border-box;
         max-width: calc(50% - 20px);
+    }
+
+    .images {
+        display: flex;
+        gap: 20px;
     }
 
     .github {
@@ -61,6 +66,8 @@ const { src, title, link, github} = Astro.props;
         flex-wrap: wrap;
         text-align: center;
         gap: 20px;
+        line-height: 1.2;
+
     }
 
     .disabled {
