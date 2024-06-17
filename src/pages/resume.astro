@@ -10,10 +10,58 @@ import BlogThumbnail from '../components/BlogTile.astro';
 <Layout title="Welcome | Kevin Cordero">
 	<NavBar></NavBar>
 	<main>
+		<div class="center">
+			<HeaderTile title='Contact'>
+				<div class="links">
+					<div class="text">
+						<p class="email">You can email me at <span class="important">‮em.notorp@oredrocjk</span> </p>
+						<p>(email is obscured to avoid webscrapers)</p>
+					</div>
+	
+					<div class="socials">
+						<a href="https://github.com/Olympicene" ><img src="/socials/github.png"/></a>
+						<a href="https://www.linkedin.com/in/kevin-cordero/"><img src="/socials/linkedin.png"/></a>
+					</div>
+				</div>
+			</HeaderTile>
 
+			<HeaderTile title='Resume'>
+				<iframe src="https://drive.google.com/file/d/1gMhINSfnOqAIRy7eD5LwUqrdgXKpBRJ6/preview" width="100%" height="480" allow="autoplay"></iframe>
+			</HeaderTile>
+		</div>
 	</main>
 </Layout>
 
 <style>
+	.links {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
 
+	.socials {
+		display: flex;
+		flex-direction: row;
+		gap: 20px;
+	}
+
+	.important {
+		text-decoration: underline;
+	}
+
+	.email {
+		font-size: 20px;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.center {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		width: 100%;
+	}
 </style>
