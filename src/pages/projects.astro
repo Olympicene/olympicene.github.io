@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar.astro';
 import HeaderTile from '../components/HeaderTile.astro';
 import QuickLink from '../components/QuickLink.astro';
 import Updates from '../components/Updates.astro';
-import BlogThumbnail from '../components/BlogThumbnail.astro';
+import BlogThumbnail from '../components/BlogTile.astro';
 import ProjectTile from '../components/ProjectTile.astro';
 ---
 
@@ -19,28 +19,20 @@ import ProjectTile from '../components/ProjectTile.astro';
 			personal website containing blog posts, projects useful links and contact information for me, Kevin Cordero
 		</ProjectTile>
 		<ProjectTile title="Spotify-Beeper Bot" src={["/projects/spotify.png", "/projects/beeper.png"]} github='https://github.com/Olympicene/spotify-messenger-bot'>
-			an all-in-one study buddy helping you find the best study spaces near you. Made over the course of 16 weeks for CS 440 @ UIC
+			Beeper bot that when added to a groupchat adds one song to a Spotify playlist per person, per day.
 		</ProjectTile>
 		<ProjectTile title="Automation-Scripts" src={["/projects/autohotkey.png", "/projects/python.png"]} github='https://github.com/Olympicene/autohotkey-scripts'>
-			an all-in-one study buddy helping you find the best study spaces near you. Made over the course of 16 weeks for CS 440 @ UIC
+			A Personal selection of Autohokey and python scripts that I currently/have found to be useful
 		</ProjectTile>
 		<ProjectTile title="Messenger-Stats-CLI" src={["/projects/messenger.png"]} github='https://github.com/Olympicene/messenger-react-counter'>
-			an all-in-one study buddy helping you find the best study spaces near you. Made over the course of 16 weeks for CS 440 @ UIC
+			A command line tool that uses messenger archive data to find interesting statistics on chats that you’ve been in
 		</ProjectTile>
 		<ProjectTile title="Homelab" src={["/projects/homelab.png"]} github='https://github.com/Olympicene'>
-			an all-in-one study buddy helping you find the best study spaces near you. Made over the course of 16 weeks for CS 440 @ UIC
+			Current Setup of my Homelab and all the services that i self-host on it. Plus some ansible scripts
 		</ProjectTile>
 	</main>
 </Layout>
 
 <style>
-	main {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 20px;
 
-		margin: auto;
-		max-width: 50%;
-		line-height: 1.6;
-	}
 </style>
