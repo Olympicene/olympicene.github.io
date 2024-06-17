@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://olympicene.dev/sitemap-index.xml
