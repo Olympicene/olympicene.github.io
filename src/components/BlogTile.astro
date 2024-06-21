@@ -4,18 +4,22 @@ interface Props {
     title: string;
     summary?: string;
     src: string;
+    link?: string;
 }
 
-const { date, title, summary="", src} = Astro.props;
+const { date, title, summary="", src, link=""} = Astro.props;
 ---
 
-<div class='tile'>
-    <img class="picture" src={src}>
-    <div class="text">
-        <p class="metadata">{date} - {title}</p>
-        <slot/>
+<a href={link}>
+    <div class='tile'>
+        <img class="picture" src={src}>
+        <div class="text">
+            <p class="metadata">{date} - {title}</p>
+            <slot/>
+        </div>
     </div>
-</div>
+</a>
+
 
 <style>
     .tile {
@@ -35,7 +39,8 @@ const { date, title, summary="", src} = Astro.props;
     .text {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: 10px;
+        color: #343a40;
     }
 
     .metadata {

@@ -4,14 +4,15 @@ interface Props {
     type: string;
     title: string;
     summary?: string;
+    link?: string;
 }
 
-const { date, type, title, summary=""} = Astro.props;
+const { date, type, title, summary="", link=""} = Astro.props;
 ---
 
 <li class="update">
     <p class="metadata">{date} - {type}</p>
-    <a href="https://google.com" class="title">{title}</a>
+    <a href={link} class="title">{title}</a>
     <!-- <p class="summary">{summary}</p> -->
 </li>
 <style>

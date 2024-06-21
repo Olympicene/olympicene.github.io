@@ -1,41 +1,72 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import NavBar from '../components/NavBar.astro';
-import HeaderTile from '../components/HeaderTile.astro';
-import QuickLink from '../components/QuickLink.astro';
-import Updates from '../components/Updates.astro';
-
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/NavBar.astro";
+import HeaderTile from "../components/HeaderTile.astro";
+import QuickLink from "../components/QuickLink.astro";
+import Updates from "../components/Updates.astro";
+const posts = await Astro.glob("../content/blog/*.md");
 ---
+
 <Layout title="Welcome | Kevin Cordero">
 	<main>
 		<div class="left">
 			<HeaderTile title="Welcome!">
 				<p>
-					Hi, I’m Kevin, a rising senior enrolled at the University of 
-					Illinois at Chicago. 
-					I’m looking for internships and full time offers this upcoming fall cycle. 
-					I’m interested in DevOps and have a lot of experience in Webdev. 
-					<br><br> I’m not a systems guy but I like tinkering with my Homelab
-					and am Treasurer of UIC's LUG (Linux Users Group)
+					Hi, I’m Kevin, a rising senior enrolled at the University of
+					Illinois at Chicago. I’m looking for internships and full
+					time offers this upcoming fall cycle. I’m interested in
+					DevOps and have a lot of experience in Webdev.
+					<br /><br /> I’m not a systems guy but I like tinkering with
+					my Homelab and am Treasurer of UIC's LUG (Linux Users Group)
 				</p>
 			</HeaderTile>
 			<HeaderTile title="Quick Links">
-				<QuickLink href="https://linkding.olympicene.dev" src="/links/linkding.png" name="Linkding"></QuickLink>
-				<QuickLink href="https://jellyfin.olympicene.dev" src="/links/jellyfin.png" name="Jellyfin"></QuickLink>
-				<QuickLink href="https://letterboxd.com/Olympicene/" src="/links/letterboxd.png" name="Letterboxd"></QuickLink>
-				<QuickLink href="https://example.com" src="/links/homer.png" name="Homer"></QuickLink>	
-				<QuickLink href="/resume" src="/links/resume.png" name="Resume"></QuickLink>
-				<QuickLink href="/sitemap" src="/links/sitemap.png" name="Sitemap"></QuickLink>	
+				<QuickLink
+					href="https://linkding.olympicene.dev"
+					src="/links/linkding.png"
+					name="Linkding"
+				/>
+				<QuickLink
+					href="https://jellyfin.olympicene.dev"
+					src="/links/jellyfin.png"
+					name="Jellyfin"
+				/>
+				<QuickLink
+					href="https://letterboxd.com/Olympicene/"
+					src="/links/letterboxd.png"
+					name="Letterboxd"
+				/>
+				<QuickLink
+					href="https://example.com"
+					src="/links/homer.png"
+					name="Homer"
+				/>
+				<QuickLink
+					href="/resume"
+					src="/links/resume.png"
+					name="Resume"
+				/>
+				<QuickLink
+					href="/sitemap"
+					src="/links/sitemap.png"
+					name="Sitemap"
+				/>
 			</HeaderTile>
 		</div>
 
 		<div class="right">
 			<HeaderTile tall={true} title="Recent">
 				<div class="updates">
-					<Updates date="2024-06-05" type="Blog Post" title="I made a website!" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
-					<Updates date="2024-06-05" type="Bug Fix" title="Fixed NGINX routing issue" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
-					<Updates date="2024-06-05" type="Bug Fix" title="Jellyfin link should work now" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
-					<Updates date="2024-06-05" type="Project" title="silentspaces.info" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
+					{
+						posts.map((post) => (
+							<Updates
+								date={post.frontmatter.date}
+								type={post.frontmatter.type}
+								title={post.frontmatter.title}
+								link={`/blog/${post.frontmatter.slug}`}
+							/>
+						))
+					}
 				</div>
 			</HeaderTile>
 		</div>
@@ -44,7 +75,8 @@ import Updates from '../components/Updates.astro';
 
 <style>
 	p {
-		font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+			"Helvetica Neue", sans-serif;
 		line-height: 1.6;
 		font-size: 16px;
 		margin: 0;
@@ -56,6 +88,4 @@ import Updates from '../components/Updates.astro';
 
 		gap: 20px;
 	}
-
-
 </style>

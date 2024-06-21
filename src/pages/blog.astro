@@ -4,26 +4,40 @@ import NavBar from '../components/NavBar.astro';
 import HeaderTile from '../components/HeaderTile.astro';
 import QuickLink from '../components/QuickLink.astro';
 import Updates from '../components/Updates.astro';
-import BlogTile from '../components/BlogTile.astro';---
+import BlogTile from '../components/BlogTile.astro';
+const posts = await Astro.glob("../content/blog/*.md");
+
+---
 <Layout title="Blog | Kevin Cordero">
 	<main>
 		<div class="left">
-			<BlogTile date="2024-06-05" title="Welcome!" src="/placeholder.png">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor. Vel turpis nunc eget lorem dolor sed viverra ipsu...
-            </BlogTile>
-            <BlogTile date="2024-06-05" title="Welcome!" src="/placeholder.png">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor. Vel turpis nunc eget lorem dolor sed viverra ipsu...
-            </BlogTile>
-            <BlogTile date="2024-06-05" title="Welcome!" src="/placeholder.png">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor. Vel turpis nunc eget lorem dolor sed viverra ipsu...
-            </BlogTile>
+			{
+				posts.map((post) => (
+					<BlogTile
+						date={post.frontmatter.date}
+						title={post.frontmatter.title}
+						src="/placeholder.png"
+						link={`/blog/${post.frontmatter.slug}`}
+					>
+					{post.frontmatter.description}
+					</BlogTile>
+				))
+			}
 		</div>
 
 		<div class="right">
-			<HeaderTile title="Favorites">
+			<HeaderTile title="Recent">
 				<div class="updates">
-					<Updates date="2024-06-05" type="Blog Post" title="I made a website!" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
-					<Updates date="2024-06-05" type="Project" title="silentspaces.info" summary='a short summary of the technologies that make up my website and so on and so forth'></Updates>
+					{
+						posts.map((post) => (
+							<Updates
+								date={post.frontmatter.date}
+								type={post.frontmatter.type}
+								title={post.frontmatter.title}
+								link={`/blog/${post.frontmatter.slug}`}
+							/>
+						))
+					}
 				</div>
 			</HeaderTile>
 		</div>
