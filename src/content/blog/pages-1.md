@@ -1,9 +1,10 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
-title: Welcome to my Blog!
+title: Welcome to my blog!
 description: An introduction to my website and blog! I don't really have anything planned content wise so this is kind of open ended.
 date: May 30, 2024
 time: 3 min
+slug: test
 ---
 
 ## Welcome to my blog!
