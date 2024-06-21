@@ -3,13 +3,14 @@ interface Props {
     src: string;
     name: string;
     href: string;
+    newtab?: boolean;
 }
 
-const { name, src, href} = Astro.props;
+const { name, src, href, newtab=true} = Astro.props;
 ---
 
 <li>
-    <a href={href} class="quickLink" target="_blank">
+    <a href={href} class="quickLink" target={newtab ? "_blank" : ""}>
         <img src={src} />
         <p>{name}</p>
     </a>

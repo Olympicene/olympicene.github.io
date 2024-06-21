@@ -7,7 +7,7 @@ interface Props {
 
 const { title, tall=false} = Astro.props;
 ---
-<div class='tile' style={tall ? "height:100%" : "position: sticky; top: 20px;"}>
+<div class='tile' style={tall ? "height:100%" : "top: 20px;"}>
     <p class="title">{title}</p>
     <hr>
     <div class="content">

@@ -1,0 +1,133 @@
+---
+const { frontmatter } = Astro.props;
+import { ViewTransitions } from "astro:transitions";
+import NavBar from "../components/NavBar.astro";
+import HeaderTile from "../components/HeaderTile.astro";
+import Updates from "../components/Updates.astro";
+import QuickLink from '../components/QuickLink.astro';
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="The Personal Blog and Link Tree of Kevin"
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{frontmatter.title}</title>
+		<ViewTransitions />
+	</head>
+	<body>
+		<NavBar />
+		<main>
+			<div class="center">
+				<div class="metadata">
+					<h1 style="font-size: 40px">{frontmatter.title}</h1>
+					<p style="font-size: 14px">Published:  {frontmatter.date} - {frontmatter.time} read</p>
+					<hr style="margin-top: 10px;">
+
+				</div>
+
+				<div class="content">
+					<slot />
+				</div>
+
+				<div>
+					<hr style="margin-top: 10px;">
+					<div class="blog-links">
+						<QuickLink href="/" src="/links/arrow-left.svg" name="Pervious Post" newtab={false}></QuickLink>
+						<QuickLink href="/blog" src="/links/archive.svg" name="All Blog Posts" newtab={false}></QuickLink>	
+					</div>
+				</div>
+			</div>
+		</main>
+	</body><style is:global>
+		:root {
+			--accent: #343a40;
+			--accent-light: #adb5bd;
+			--accent-dark: #495057;
+			--accent-gradient: linear-gradient(
+				45deg,
+				rgb(var(--accent)),
+				rgb(var(--accent-light)) 30%,
+				white 60%
+			);
+		}
+
+		body {
+			margin: 0;
+		}
+
+		html {
+			font-family: system-ui, sans-serif;
+			color: #343a40;
+			background: #e9ecef;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		code {
+			font-family:
+				Menlo,
+				Monaco,
+				Lucida Console,
+				Liberation Mono,
+				DejaVu Sans Mono,
+				Bitstream Vera Sans Mono,
+				Courier New,
+				monospace;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		main {
+			display: flex;
+			flex-wrap: wrap;
+
+			gap: 20px;
+
+			margin: auto;
+			/* width: 960px; */
+
+			line-height: 1.6;
+		}
+
+		.center {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			margin: auto;
+
+			width: 100%;
+			max-width:650px
+		}
+	
+		.metadata *{
+			margin: 0px;
+		}
+
+		.content h1,h2,h3{
+			line-height: 1.2;
+		}
+
+		.content {
+			padding: 0 10px;
+			font-size: 18px;
+		}
+
+		.blog-links {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
+	</style>
+</html>
