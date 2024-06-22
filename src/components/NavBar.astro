@@ -12,18 +12,19 @@ import HeaderTile from "../components/HeaderTile.astro";
         <div class="menu-button" onclick="handleToggleClick(this)">
             <img src="/links/menu.svg"/>
         </div>
+
         <div class="links">
             <a class={currentPath === "" ? "active" : ""} href="/">Home</a>
-            <a class={currentPath === "blog" ? "active" : ""} href="/blog">Blog</a>
-            <a class={currentPath === "projects" ? "active" : ""} href="/projects">Projects</a>
-            <a class={currentPath === "resume" ? "active" : ""} href="/resume">Resume</a>
+            <a class={currentPath == "blog/" ? "active" : ""} href="/blog/">Blog</a>
+            <a class={currentPath == "projects/" ? "active" : ""} href="/projects/">Projects</a>
+            <a class={currentPath == "resume/" ? "active" : ""} href="/resume/">Resume</a>
         </div>
     </div>
     <div id="mobileMenu" class="mobile-menu">
         <a class={currentPath === "" ? "active" : ""} href="/">Home</a>
-        <a class={currentPath === "blog" ? "active" : ""} href="/blog">Blog</a>
-        <a class={currentPath === "projects" ? "active" : ""} href="/projects">Projects</a>
-        <a class={currentPath === "resume" ? "active" : ""} href="/resume">Resume</a>
+        <a class={currentPath == "blog/" ? "active" : ""} href="/blog/">Blog</a>
+        <a class={currentPath == "projects/" ? "active" : ""} href="/projects/">Projects</a>
+        <a class={currentPath == "resume/" ? "active" : ""} href="/resume/">Resume</a>
     </div>
 </nav>
 

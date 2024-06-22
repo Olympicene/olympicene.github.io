@@ -43,7 +43,7 @@ const { Content, frontmatter} = Astro.props.post;
                         newtab={false}
                     />
                     <QuickLink
-                        href="/blog"
+                        href="/blog/"
                         src="/links/archive.svg"
                         name="All Blog Posts"
                         newtab={false}
@@ -55,10 +55,6 @@ const { Content, frontmatter} = Astro.props.post;
 </BlogPostLayout>
 
 <style>
-
-    .content a {
-        text-decoration: underline;
-    }
 
     main {
         display: flex;
