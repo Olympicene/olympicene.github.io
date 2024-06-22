@@ -72,4 +72,19 @@ const posts = await Astro.glob("../content/blog/*.md");
 
 		gap: 20px;
 	}
+
+	@media only screen and (max-width: 1024px) {
+		main {
+			flex-direction: column;
+			width: 90%;
+		}
+
+		.left {
+			max-width: 100%;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+
+	}
 </style>

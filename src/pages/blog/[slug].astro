@@ -56,7 +56,6 @@ const { Content, frontmatter} = Astro.props.post;
 
 <style>
 
-
     main {
         display: flex;
         flex-wrap: wrap;
@@ -64,7 +63,6 @@ const { Content, frontmatter} = Astro.props.post;
         gap: 20px;
 
         margin: auto;
-        /* width: 960px; */
 
         line-height: 1.6;
     }
@@ -100,6 +98,15 @@ const { Content, frontmatter} = Astro.props.post;
         justify-content: space-around;
     }
 
+	@media only screen and (max-width: 1024px) {
+		main {
+			flex-direction: column;
+			width: 90%;
+            margin: auto;
+		}
+	}
 
+	@media only screen and (max-width: 768px) {
 
+	}
 </style>
