@@ -3,6 +3,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://olympicene.dev',
+  site: 'https://olympicene.github.io',
+  base: '/',
   integrations: [sitemap()]
 });
