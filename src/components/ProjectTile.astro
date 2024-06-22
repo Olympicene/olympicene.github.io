@@ -36,11 +36,16 @@ const { src, title, link, github} = Astro.props;
 
         box-sizing: border-box;
         max-width: calc(50% - 10px);
+        width: 100%;
     }
 
     .images {
         display: flex;
         gap: 20px;
+    }
+
+    .images img {
+        height: 85px;
     }
 
     .github {
@@ -66,8 +71,10 @@ const { src, title, link, github} = Astro.props;
         flex-wrap: wrap;
         text-align: center;
         gap: 20px;
-        line-height: 1.2;
-
+        line-height: 1.4;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
     }
 
     .disabled {
