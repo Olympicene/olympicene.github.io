@@ -1,6 +1,7 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
+import HeaderTile from "../components/HeaderTile.astro";
 ---
 
 <nav class="navbar">
@@ -8,7 +9,9 @@ const currentPath = pathname.slice(1); // remove the first "/"
         <a class="logo" href="/"> 
             <img src="/logo.svg" alt="Logo">
         </a>
-
+        <div class="menu-button" onclick="handleToggleClick(this)">
+            <img src="/links/menu.svg"/>
+        </div>
         <div class="links">
             <a class={currentPath === "" ? "active" : ""} href="/">Home</a>
             <a class={currentPath === "blog" ? "active" : ""} href="/blog">Blog</a>
@@ -16,10 +19,17 @@ const currentPath = pathname.slice(1); // remove the first "/"
             <a class={currentPath === "resume" ? "active" : ""} href="/resume">Resume</a>
         </div>
     </div>
+    <div id="mobileMenu" class="mobile-menu">
+        <a class={currentPath === "" ? "active" : ""} href="/">Home</a>
+        <a class={currentPath === "blog" ? "active" : ""} href="/blog">Blog</a>
+        <a class={currentPath === "projects" ? "active" : ""} href="/projects">Projects</a>
+        <a class={currentPath === "resume" ? "active" : ""} href="/resume">Resume</a>
+    </div>
 </nav>
+
 <style>
     .navbar {
-        height: 50px;
+        height: 100%;
         width: 100vw;
         background-color: #DEE2E6;
         margin-bottom: 45px;
@@ -53,10 +63,68 @@ const currentPath = pathname.slice(1); // remove the first "/"
     }
 
     .logo {
-        height: 50%;
+        display: flex;
+        align-items: center;
+        height: 50px;
     }
 
     .logo img {
+        height: 50%;
+    }
+
+    .menu-button {
+        display: none;
+        justify-content: end;
+        /* opacity: 0; */
+
+        width: 50px;
         height: 100%;
     }
+
+    .menu-button img {
+        width: 60%;
+    }
+
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 20px;
+    }
+
+    .mobile-menu a {
+        color: black;
+        font-size: 20px;
+    }
+
+    .open {
+        display: flex;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        .content {
+            max-width: 90%;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+	}
+
+    @media only screen and (max-width: 768px) {
+        .links {
+            display: none;
+        }
+
+        .menu-button {
+            display: flex;
+        }
+
+	}
 </style>
+<script is:inline>
+    const handleToggleClick = () => {
+        document.getElementById("mobileMenu").classList.toggle('open');
+    }
+</script>

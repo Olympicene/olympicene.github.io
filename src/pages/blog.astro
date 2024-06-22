@@ -45,6 +45,20 @@ const posts = await Astro.glob("../content/blog/*.md");
 </Layout>
 
 <style is:global>
+
+	.left {
+		display: flex;
+		gap: 20px;
+		flex-direction: column;
+
+		flex: 1 1 auto;
+		max-width: calc((65% - 6 * 20px) + 4 * 20px);
+	}
+
+	.right {
+		flex: 1 1 auto;
+	}
+
     p {
 		font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		line-height: 1.6;
