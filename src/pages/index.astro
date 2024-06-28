@@ -4,7 +4,8 @@ import NavBar from "../components/NavBar.astro";
 import HeaderTile from "../components/HeaderTile.astro";
 import QuickLink from "../components/QuickLink.astro";
 import Updates from "../components/Updates.astro";
-const posts = await Astro.glob("../content/blog/*.md");
+import { getCollection, getEntry } from 'astro:content';
+const allBlogPosts = await getCollection('blog');
 ---
 
 <Layout title="Welcome | Kevin Cordero">
@@ -58,12 +59,12 @@ const posts = await Astro.glob("../content/blog/*.md");
 			<HeaderTile tall={true} title="Recent">
 				<div class="updates">
 					{
-						posts.map((post) => (
+						allBlogPosts.map((post) => (
 							<Updates
-								date={post.frontmatter.date}
-								type={post.frontmatter.type}
-								title={post.frontmatter.title}
-								link={`/blog/${post.frontmatter.slug}`}
+								date={post.data.date}
+								type={post.data.type}
+								title={post.data.title}
+								link={`/blog/${post.slug}`}
 							/>
 						))
 					}

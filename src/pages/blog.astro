@@ -5,21 +5,24 @@ import HeaderTile from '../components/HeaderTile.astro';
 import QuickLink from '../components/QuickLink.astro';
 import Updates from '../components/Updates.astro';
 import BlogTile from '../components/BlogTile.astro';
-const posts = await Astro.glob("../content/blog/*.md");
-
+import { getCollection } from 'astro:content';
+const allBlogPosts = await getCollection('blog');
+const favoriteBlogPosts = await getCollection('blog', ({ data }) => {
+  return data.favorite == true;
+});
 ---
 <Layout title="Blog | Kevin Cordero">
 	<main>
 		<div class="left">
 			{
-				posts.map((post) => (
+				allBlogPosts.map((post) => (
 					<BlogTile
-						date={post.frontmatter.date}
-						title={post.frontmatter.title}
+						date={post.data.date}
+						title={post.data.title}
 						src="/placeholder.png"
-						link={`/blog/${post.frontmatter.slug}`}
+						link={`/blog/${post.slug}`}
 					>
-					{post.frontmatter.description}
+					{post.data.description}
 					</BlogTile>
 				))
 			}
@@ -29,12 +32,12 @@ const posts = await Astro.glob("../content/blog/*.md");
 			<HeaderTile title="Favorites">
 				<div class="updates">
 					{
-						posts.map((post) => (
+						favoriteBlogPosts.map((post) => (
 							<Updates
-								date={post.frontmatter.date}
-								type={post.frontmatter.type}
-								title={post.frontmatter.title}
-								link={`/blog/${post.frontmatter.slug}`}
+								date={post.data.date}
+								type={post.data.type}
+								title={post.data.title}
+								link={`/blog/${post.slug}`}
 							/>
 						))
 					}
