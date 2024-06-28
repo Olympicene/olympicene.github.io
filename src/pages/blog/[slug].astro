@@ -35,19 +35,10 @@ const { Content, frontmatter} = Astro.props.post;
 
             <div>
                 <hr style="margin-top: 10px;" />
-                <div class="blog-links">
-                    <QuickLink
-                        href="/"
-                        src="/links/home.svg"
-                        name="Home"
-                        newtab={false}
-                    />
-                    <QuickLink
-                        href="/blog/"
-                        src="/links/archive.svg"
-                        name="All Blog Posts"
-                        newtab={false}
-                    />
+                <div class="links">
+                    <a href="javascript:history.back()">Back</a>
+                    <a href="/">Home</a>
+                    <a href="/blog/">More</a>
                 </div>
             </div>
         </div>
@@ -92,11 +83,14 @@ const { Content, frontmatter} = Astro.props.post;
         font-size: 18px;
     }
 
-    .blog-links {
+    .links {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: start;
+        margin-bottom: 20px;
+        gap: 20px;
     }
+
 
 	@media only screen and (max-width: 1024px) {
 		main {
