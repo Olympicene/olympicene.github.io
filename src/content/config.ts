@@ -11,7 +11,7 @@ const blogCollection = defineCollection({
     date: z.string(),
     time: z.string(),
     tags: z.array(z.string()).optional(),
-    image: z.string().optional(),
+    image: z.string(),
     favorite: z.boolean().optional(),
   }),
 });

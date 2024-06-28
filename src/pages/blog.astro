@@ -19,7 +19,7 @@ const favoriteBlogPosts = await getCollection('blog', ({ data }) => {
 					<BlogTile
 						date={post.data.date}
 						title={post.data.title}
-						src="/placeholder.png"
+						src={post.data.image}
 						link={`/blog/${post.slug}`}
 					>
 					{post.data.description}
