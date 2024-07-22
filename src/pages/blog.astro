@@ -32,7 +32,7 @@ const favoriteBlogPosts = await getCollection('blog', ({ data }) => {
 			<HeaderTile title="Favorites">
 				<div class="updates">
 					{
-						favoriteBlogPosts.map((post) => (
+						favoriteBlogPosts.reverse().map((post) => (
 							<Updates
 								date={post.data.date}
 								type={post.data.type}

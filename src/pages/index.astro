@@ -59,7 +59,7 @@ const allBlogPosts = await getCollection('blog');
 			<HeaderTile tall={true} title="Recent">
 				<div class="updates">
 					{
-						allBlogPosts.map((post) => (
+						allBlogPosts.reverse().map((post) => (
 							<Updates
 								date={post.data.date}
 								type={post.data.type}
