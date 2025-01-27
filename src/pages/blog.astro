@@ -20,7 +20,7 @@ const favoriteBlogPosts = await getCollection('blog', ({ data }) => {
 						date={post.data.date}
 						title={post.data.title}
 						src={post.data.image}
-						link={`/blog/${post.slug}`}
+						link={`/blog/${post.id}`}
 					>
 					{post.data.description}
 					</BlogTile>
@@ -37,7 +37,7 @@ const favoriteBlogPosts = await getCollection('blog', ({ data }) => {
 								date={post.data.date}
 								type={post.data.type}
 								title={post.data.title}
-								link={`/blog/${post.slug}`}
+								link={`/blog/${post.id}`}
 							/>
 						))
 					}

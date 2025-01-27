@@ -64,7 +64,7 @@ const allBlogPosts = await getCollection('blog');
 								date={post.data.date}
 								type={post.data.type}
 								title={post.data.title}
-								link={`/blog/${post.slug}`}
+								link={`/blog/${post.id}`}
 							/>
 						))
 					}

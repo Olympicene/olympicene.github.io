@@ -1,31 +1,27 @@
 ---
 import NavBar from "../../components/NavBar.astro";
-import QuickLink from "../../components/QuickLink.astro";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-    const posts = await Astro.glob("../../content/**/*.md");
-
-    return posts.map((post) => ({
-        params: {
-            slug: post.frontmatter.slug,
-        },
-        props: {
-            post,
-        },
-    }));
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
 }
 
-const { Content, frontmatter} = Astro.props.post;
+const { post } = Astro.props;
+const { Content } = await render(post);
 ---
 
-<BlogPostLayout title={frontmatter.title}>
+<BlogPostLayout title={post.data.title}>
     <NavBar />
     <main>
         <div class="center">
             <div class="metadata">
-                <h1 style="font-size: 40px">{frontmatter.title}</h1>
-                <p style="font-size: 14px">Published: {frontmatter.date} - {frontmatter.time} read</p>
+                <h1 style="font-size: 40px">{post.data.title}</h1>
+                <p style="font-size: 14px">Published: {post.data.date} - {post.data.time} read</p>
                 <hr style="margin-top: 10px;" />
             </div>
 
