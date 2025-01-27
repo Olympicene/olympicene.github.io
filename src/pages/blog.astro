@@ -15,7 +15,7 @@ const favoriteBlogPosts = await getCollection('blog', ({ data }) => {
 	<main>
 		<div class="left">
 			{
-				allBlogPosts.map((post) => (
+				allBlogPosts.reverse().map((post) => (
 					<BlogTile
 						date={post.data.date}
 						title={post.data.title}
